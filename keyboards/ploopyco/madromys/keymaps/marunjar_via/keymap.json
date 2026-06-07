@@ -2,5 +2,8 @@
     "keyboard": "ploopyco/madromys/rev1_001",
     "keymap": "marunjar_via",
     "layout": "LAYOUT",
-    "modules": []
+    "modules": [
+        "drashna/pointing_device_accel",
+        "drashna/mouse_jiggler"
+    ]
 }

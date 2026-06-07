@@ -22,7 +22,15 @@ enum adept_layers {
   _CONFIG
 };
 
+enum acceleration_keycodes {
+    MA_TOGGLE = MA_TOGG,
+    MA_TAKEOFF = MA_TKOF,
+    MA_GROWTH_RATE = MA_GROW,
+    MA_OFFSET = MA_OFST,
+    MA_LIMIT = MA_LMT
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_DEFAULT] = LAYOUT( DRAG_SCROLL, MS_BTN4, MS_BTN5, MS_BTN2, MS_BTN1, MO(_CONFIG) ),
-    [_CONFIG]  = LAYOUT( DPI_CONFIG,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO       )
+    [_CONFIG]  = LAYOUT( DPI_CONFIG,  MA_TOGG, KC_NO,   KC_NO,   MS_JGTG, KC_NO       )
 };

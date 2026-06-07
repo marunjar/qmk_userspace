@@ -17,6 +17,12 @@
  */
 #include QMK_KEYBOARD_H
 
+enum adept_layers {
+  _DEFAULT,
+  _CONFIG
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT( DRAG_SCROLL, MS_BTN4, MS_BTN5, MS_BTN2, MS_BTN1, DPI_CONFIG )
+    [_DEFAULT] = LAYOUT( DRAG_SCROLL, MS_BTN4, MS_BTN5, MS_BTN2, MS_BTN1, MO(_CONFIG) ),
+    [_CONFIG]  = LAYOUT( DPI_CONFIG,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO       )
 };

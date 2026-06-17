@@ -19,6 +19,7 @@
 
 enum adept_layers {
   _DEFAULT,
+  _FUNC,
   _CONFIG
 };
 
@@ -31,6 +32,28 @@ enum acceleration_keycodes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_DEFAULT] = LAYOUT( DRAG_SCROLL, MS_BTN4, MS_BTN5, MS_BTN2, MS_BTN1, MO(_CONFIG) ),
-    [_CONFIG]  = LAYOUT( DPI_CONFIG,  MA_TOGG, KC_NO,   KC_NO,   MS_JGTG, KC_NO       )
+    /* 
+     * ,----------------------------------------------.
+     * | OSL(_FUNC) | MS_BTN4 | MS_BTN5 | MS_BTN2     |
+     * |------------+---------+---------+-------------|
+     * | MS_BTN1    |         |         | DRAG_SCROLL |
+     * `----------------------------------------------'
+     */ 
+    [_DEFAULT] = LAYOUT( OSL(_FUNC), MS_BTN4, MS_BTN5, MS_BTN2, MS_BTN1, DRAG_SCROLL ),
+    /* 
+     * ,-------------------------------------------.
+     * | C(KC_X)     | C(KC_C) | C(KC_V) | C(KC_Z) |
+     * |-------------+---------+---------+---------|
+     * | MO(_CONFIG) |         |         | MS_JGTG |
+     * `-------------------------------------------'
+     */ 
+    [_FUNC]    = LAYOUT( C(KC_X), C(KC_C), C(KC_V), C(KC_Z), MO(_CONFIG), MS_JGTG ),
+    /* 
+     * ,--------------------------------------.
+     * | DPI_CONFIG | MA_TOGG | KC_NO | KC_NO |
+     * |------------+---------+-------+-------|
+     * | KC_NO      |         |       | KC_NO |
+     * `--------------------------------------'
+     */ 
+    [_CONFIG]  = LAYOUT( DPI_CONFIG, MA_TOGG, KC_NO, KC_NO, KC_NO, KC_NO )
 };
